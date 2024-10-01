@@ -14,13 +14,20 @@ include \masm32\macros\macros.asm
     accumulator dd 0
     
 .code
+
+sum:
+    INC edx
+    ADD ebx, edx
+    RET 
+    
 start:
     MOV ecx, dword ptr [counter]
     MOV ebx, dword ptr [accumulator]
     MOV edx, 0    
 loopStart:
-    INC edx
-    ADD ebx, edx
+
+    call sum
+    
     LOOP loopStart
 
 printResult:
