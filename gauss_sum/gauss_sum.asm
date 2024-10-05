@@ -18,6 +18,8 @@ include \masm32\macros\macros.asm
 sum:
     INC edx
     ADD ebx, edx
+    XOR eax, eax
+    ADD eax, ebx
     RET 
     
 start:
@@ -27,6 +29,7 @@ start:
 loopStart:
 
     call sum
+    MOV ebx, eax
     
     LOOP loopStart
 
